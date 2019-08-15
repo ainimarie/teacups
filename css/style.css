@@ -74,7 +74,7 @@ select,
 textarea {
     font-family: inherit;
     font-size: 100%;
-    margin: 0 0 1em;
+    margin: 0 0 0.4em;
     width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
