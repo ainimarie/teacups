@@ -7,4 +7,27 @@
 html {
     font-size: 100%;
     line-height: 1.6;
+    margin: 0;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 40vh;
+    background-color: #ffc7c7;
+}
+
+.header-title {
+font-size: 4rem;
+margin: 0;
+}
+
+.header-subtitle {
+    margin: 0;
 }
