@@ -47,4 +47,15 @@ function showLogs(tea) {
     container.appendChild(log);
 }
 
+let green = document.getElementById('colorGreen');
+
+green.addEventListener('click', function (e) {
+    document.documentElement.setAttribute('data-theme', 'greentheme')
+})
+
+let pink = document.getElementById('colorPink');
+
+pink.addEventListener('click', function (e) {
+    document.documentElement.setAttribute('data-theme', 'light')
+})
 //submit-tea

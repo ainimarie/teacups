@@ -3,6 +3,14 @@
     --secondary-bg-color: #ddc6c6;
     --main-font-color: #363131;
 }
+[data-theme="greentheme"] {
+    --main-bg-color: rgb(101, 212, 151);
+    --secondary-bg-color: #81ab8a;
+    --main-font-color: #e1e1ff;
+    --bg-color: #161625;
+    --heading-color: #818cab;
+}
+
 *,
 *:before,
 *:after {
