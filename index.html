@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body>
+<body onload="loadLogs()">
 
     <header id="header">
         <h1 class="header-title">drink all the tea 🍵</h1>
@@ -16,7 +16,7 @@
 
     <main id="main">
 
-        <section class="container-logs">
+        <section id="logs" class="container-logs">
             <!-- this.appendChild -> item -->
             <article class="item-logs">
                 <!-- just for testing css before doing javascript yah  -->
@@ -63,6 +63,8 @@
             </div>
         </section>
     </main>
+
+    <script src="scripts/tealog.js"></script>
 </body>
 
 </html>
