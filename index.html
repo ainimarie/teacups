@@ -13,32 +13,53 @@
         <h1 class="header-title">drink all the tea 🍵</h1>
         <span class="header-subtitle">a logger for logging teas (because why not)</span>
     </header>
+
     <main id="main">
 
-        <section class="container-logs"> <!-- this.appendChild -> item -->
-            <article class="item-logs"> <!-- just for testing css before doing javascript yah  -->
-        <p>the tea was bad! 😞</p>
+        <section class="container-logs">
+            <!-- this.appendChild -> item -->
+            <article class="item-logs">
+                <!-- just for testing css before doing javascript yah  -->
+                <p>the tea was bad! 😞</p>
             </article>
         </section>
 
-        <section class="container-sidebar">
+        <section class="sidebar">
+            <div class="sidebar__desc">
+                <p>Rate your tea</p>
+            </div>
+            <div class="sidebar__form">
+                <form>
+                    <input type="text" value="teaname" id="teaname">
 
-            <input type="text" value="teaname">
-            
-            <!-- some 1to5 here, like :) ... :( -->
-           
-            <input type="radio" id="teatype">
-                <label for="teatype">Black</label>
-                <input type="radio" id="teatype">
-                <label for="teatype">Green</label>
-                <input type="radio" id="teatype">
-                <label for="teatype">White</label>
-                <input type="radio" id="teatype">
-                <label for="teatype">Herbal</label>
+                    <!-- some 1to5 here, like :) ... :( -->
+                    <label class="container__teatype">Black
+                        <input type="radio" name="teatype">
+                        <span class="checkmark"></span>
+                </label>
+                <label class="container__teatype">Green
+                        <input type="radio" name="teatype">
+                        <span class="checkmark"></span>
+                </label>
+                <label class="container__teatype">White
+                        <input type="radio" name="teatype">
+                        <span class="checkmark"></span>
+                </label>
+                <label class="container__teatype">Herbal
+                        <input type="radio" name="teatype">
+                        <span class="checkmark"></span>
+                </label>
+                <label class="container__teatype">there's something else?!
+                        <input type="radio" name="teatype">
+                        <span class="checkmark"></span>
+                </label>
 
-                <input type="textarea" value="some more comments?">
+                    <input type="textarea" value="some more comments?">
 
-            <input type="button" value="submit">
+                    <input type="button" value="submit">
+                </form>
+
+            </div>
         </section>
     </main>
 </body>

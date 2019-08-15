@@ -2,6 +2,7 @@
 *:before,
 *:after {
     box-sizing: border-box;
+    /* border: none; */
 }
 
 html {
@@ -24,8 +25,8 @@ html {
 }
 
 .header-title {
-font-size: 4rem;
-margin: 0;
+    font-size: 4rem;
+    margin: 0;
 }
 
 .header-subtitle {
@@ -35,13 +36,13 @@ margin: 0;
 #main {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 40vh;
 }
 
 .container-logs {
     padding: 1rem;
-width: 50%;
+    width: 40%;
 }
 
 .item-logs {
@@ -49,7 +50,93 @@ width: 50%;
     background-color: #ffd1db;
 }
 
-.container-sidebar {
-    padding: 1rem;
+.sidebar {
     width: 20%;
 }
+
+.sidebar__desc {
+    padding:1em;
+    width: 100%;
+    margin: 0 1rem 1rem;
+}
+
+.sidebar__form {
+    padding:1em;
+    width: 100%;
+    margin: 0 1rem 1rem;
+}
+
+/* Forms */
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0 0 1em;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container__teatype {
+    margin: 0 1em 0.5em;
+display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+/* Hide the browser's default radio button */
+.container__teatype input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container__teatype:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container__teatype input:checked ~ .checkmark {
+    background-color: #ffc7c7;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container__teatype  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container__teatype .checkmark:after {
+       top: 4px;
+      left: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
