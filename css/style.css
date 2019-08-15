@@ -1,0 +1,10 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+    line-height: 1.6;
+}
