@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>teacups 🍵</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    <body>
 
-        <header id="header">
-            <h1 class="header-title">drink all the tea 🍵</h1>
-            <span class="header-subtitle">a logger for logging teas</span>
-        </header>
-    
-        
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>teacups 🍵</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <h1 class="header-title">drink all the tea 🍵</h1>
+        <span class="header-subtitle">a logger for logging teas (because why not)</span>
+    </header>
+    <main id="main">
+
+        <section class="container-logs"> <!-- this.appendChild -> item -->
+            <article class="item-logs"> <!-- just for testing css before doing javascript yah  -->
+        <p>the tea was bad! 😞</p>
+            </article>
+        </section>
+
+        <section class="container-sidebar">
+
+            <input type="text" value="teaname">
+            
+            <!-- some 1to5 here, like :) ... :( -->
+           
+            <input type="radio" id="teatype">
+                <label for="teatype">Black</label>
+                <input type="radio" id="teatype">
+                <label for="teatype">Green</label>
+                <input type="radio" id="teatype">
+                <label for="teatype">White</label>
+                <input type="radio" id="teatype">
+                <label for="teatype">Herbal</label>
+
+                <input type="textarea" value="some more comments?">
+
+            <input type="button" value="submit">
+        </section>
+    </main>
+</body>
+
 </html>
