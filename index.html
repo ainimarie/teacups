@@ -30,33 +30,61 @@
             </div>
             <div class="sidebar__form">
                 <form>
-                        <input type="text" value="teabrand" id="brand">
-                    <input type="text" value="teaname" id="teaname">
+                    <label>tea-brand
+                        <input type="text" id="brand">
+                    </label>
+                    <label>tea-name
+                        <input type="text" id="teaname">
+                    </label>
 
-                    <!-- some 1to5 here, like :) ... :( -->
+                    <!-- rating, turn this horizontal -->
+
+                    <label class="container__rating">🤮
+                        <input type="radio" name="rating">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container__rating">😩
+                        <input type="radio" name="rating">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container__rating">😐
+                        <input type="radio" name="rating">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container__rating">😃
+                        <input type="radio" name="rating">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container__rating">🤪
+                        <input type="radio" name="rating">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <!-- radiobuttons for type -->
                     <label class="container__teatype">Black
                         <input type="radio" name="teatype">
                         <span class="checkmark"></span>
-                </label>
-                <label class="container__teatype">Green
+                    </label>
+                    <label class="container__teatype">Green
                         <input type="radio" name="teatype">
                         <span class="checkmark"></span>
-                </label>
-                <label class="container__teatype">White
+                    </label>
+                    <label class="container__teatype">White
                         <input type="radio" name="teatype">
                         <span class="checkmark"></span>
-                </label>
-                <label class="container__teatype">Herbal
+                    </label>
+                    <label class="container__teatype">Herbal
                         <input type="radio" name="teatype">
                         <span class="checkmark"></span>
-                </label>
-                <label class="container__teatype">there's something else?!
+                    </label>
+                    <label class="container__teatype">there's something else?!
                         <input type="radio" name="teatype">
                         <span class="checkmark"></span>
-                </label>
+                    </label>
 
-                    <input type="textarea" value="some more comments?" rows="4">
-
+                    <label>some more comments?
+                    <input type="textarea" rows="4">
+                </label>
                     <input type="button" value="submit">
                 </form>
 

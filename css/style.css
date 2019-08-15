@@ -1,3 +1,8 @@
+:root {
+    --main-bg-color: #ffc7c7;
+    --secondary-bg-color: #ddc6c6;
+    --main-font-color: #363131;
+}
 *,
 *:before,
 *:after {
@@ -9,6 +14,7 @@ html {
     font-size: 100%;
     line-height: 1.6;
     margin: 0;
+    color: var(--main-font-color);
 }
 
 #header {
@@ -21,7 +27,7 @@ html {
     left: 0;
     width: 100vw;
     height: 40vh;
-    background-color: #ffc7c7;
+    background-color: var(--main-bg-color);
 }
 
 .header-title {
@@ -47,12 +53,15 @@ html {
 
 .item-logs {
     padding: 0.8rem;
-    background-color: #ffd1db;
+    background-color: var(--main-bg-color);
     margin: 0 0 1em;
 }
 
 .sidebar {
+
+    margin: 1em;
     width: 20%;
+    background-color: var(--secondary-bg-color);
 }
 
 .sidebar__desc {
@@ -63,8 +72,7 @@ html {
 
 .sidebar__form {
     padding:1em;
-    width: 100%;
-    margin: 0 1rem 1rem;
+    margin: 1rem 1rem;
 }
 
 /* Forms */
@@ -75,16 +83,17 @@ select,
 textarea {
     font-family: inherit;
     font-size: 100%;
-    margin: 0 0 0.4em;
+    margin: 0.4em;
     width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-.container__teatype {
+.container__teatype,
+.container__rating {
     margin: 0 1em 0.5em;
-display: block;
+    display: block;
     position: relative;
     padding-left: 35px;
     cursor: pointer;
@@ -94,10 +103,19 @@ display: block;
     user-select: none;
   }
 /* Hide the browser's default radio button */
-.container__teatype input {
+.container__teatype input,
+.container__rating input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
+  }
+
+
+  .rating {
+    top: 5px;
+    left: 0;
+    height: 16px;
+    width: 16px;
   }
 
   .checkmark {
@@ -111,12 +129,14 @@ display: block;
   }
   
   /* On mouse-over, add a grey background color */
-  .container__teatype:hover input ~ .checkmark {
+  .container__teatype:hover input ~ .checkmark,
+  .container__rating:hover input ~ .checkmark {
     background-color: #ccc;
   }
   
   /* When the radio button is checked, add a blue background */
-  .container__teatype input:checked ~ .checkmark {
+  .container__teatype input:checked ~ .checkmark,
+  .container__rating input:checked ~ .checkmark {
     background-color: #ffc7c7;
   }
   
@@ -128,12 +148,14 @@ display: block;
   }
   
   /* Show the indicator (dot/circle) when checked */
-  .container__teatype  input:checked ~ .checkmark:after {
+  .container__teatype  input:checked ~ .checkmark:after,
+  .container__rating  input:checked ~ .checkmark:after  {
     display: block;
   }
   
   /* Style the indicator (dot/circle) */
-  .container__teatype .checkmark:after {
+.container__teatype .checkmark:after,
+.container__rating .checkmark:after  {
        top: 4px;
       left: 4px;
       width: 8px;
