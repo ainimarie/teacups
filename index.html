@@ -5,17 +5,19 @@
     <meta charset="utf-8">
     <title>teacups 🍵</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
 </head>
 
 <body onload="loadLogs()">
 
     <header id="header">
+            <div id="header__buttons">
+                    <input type="button" value="Green" id="colorGreen">
+                    <input type="button" value="Pink" id="colorPink">
+                </div>
         <h1 class="header-title">drink all the tea 🍵</h1>
         <span class="header-subtitle">a logger for logging teas (because why not)</span>
-        <div id="sumButtons">
-            <input type="button" value="Green" id="colorGreen">
-            <input type="button" value="Pink" id="colorPink">
-        </div>
+       
     </header>
 
     <main id="main">
@@ -30,7 +32,7 @@
 
         <section class="sidebar">
             <div class="sidebar__desc">
-                <p>Rate your tea</p>
+                <h2><p>Rate your tea</p></h3>
             </div>
             <div class="sidebar__form">
                 <form>
@@ -89,7 +91,7 @@
                     <label>some more comments?
                     <input type="textarea" rows="4">
                 </label>
-                    <input type="button" value="submit">
+                    <input type="button" value="submit" id="submit">
                 </form>
 
             </div>

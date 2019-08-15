@@ -28,7 +28,8 @@ function ajax(url, fn) {
 			fn(req.responseText);
 		}
 	}
-	req.open('GET', url, true);
+    req.open('GET', url, true);
+    req.overrideMimeType("application/json");
 	req.send();
 }
 
@@ -46,6 +47,19 @@ function showLogs(tea) {
     //if green some image, if black other etc
     container.appendChild(log);
 }
+
+let sub = document.getElementById('submit').addEventListener('click', function () {
+//todo
+
+    let data = JSON.stringify('{ {"tea": ["name": "rudy"] }} ');
+
+    var request = new XMLHttpRequest();
+    request.open('POST', 'tea_logs.json', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.overrideMimeType("application/json");
+    request.send(data);
+    console.log(data);
+});
 
 let green = document.getElementById('colorGreen');
 

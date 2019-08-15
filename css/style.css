@@ -2,12 +2,14 @@
     --main-bg-color: #ffc7c7;
     --secondary-bg-color: #ddc6c6;
     --main-font-color: #363131;
+    --bg-color: #e2e2e2;
 }
+
 [data-theme="greentheme"] {
-    --main-bg-color: rgb(101, 212, 151);
-    --secondary-bg-color: #81ab8a;
-    --main-font-color: #e1e1ff;
-    --bg-color: #161625;
+    --main-bg-color: #91e7b8;
+    --secondary-bg-color: #a5ceae;
+    --main-font-color: #424242;
+    --bg-color: #dbdbdb;
     --heading-color: #818cab;
 }
 
@@ -23,6 +25,7 @@ html {
     line-height: 1.6;
     margin: 0;
     color: var(--main-font-color);
+    font-family: 'Merriweather', serif;
 }
 
 #header {
@@ -47,7 +50,16 @@ html {
     margin: 0;
 }
 
+#header__buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
 #main {
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -66,21 +78,23 @@ html {
 }
 
 .sidebar {
-
     margin: 1em;
     width: 20%;
     background-color: var(--secondary-bg-color);
 }
 
 .sidebar__desc {
-    padding:1em;
-    width: 100%;
-    margin: 0 1rem 1rem;
+    padding: 0 1em;
+    margin: 0 1rem;
+}
+
+.sidebar__desc h2 {
+    text-transform: uppercase;
 }
 
 .sidebar__form {
     padding:1em;
-    margin: 1rem 1rem;
+    margin: 0 1rem 1rem;
 }
 
 /* Forms */
