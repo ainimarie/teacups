@@ -1,5 +1,5 @@
 class Tea {
-    constructor(brand,name,type,rating,comment) {
+    constructor(brand, name, type, rating, comment) {
         this.brand = brand;
         this.name = name;
         this.type = type;
@@ -14,67 +14,98 @@ let id = 1;
 let db;
 let dbRequest = indexedDB.open('tealogs', 1);
 
+function loadLogs() {
+
 dbRequest.onupgradeneeded = function (event) {
     db = event.target.result;
-    let logs = db.createObjectStore('logs', {autoIncrement: true});
-};
 
-dbRequest.onerror = function() {
-alert('error opening database');
+    let logs;
+    if (! db.objectStoreNames.contains('logs')) {
+        logs = db.createObjectStore('logs', { autoIncrement: true});
+    } else {
+        logs = dbRequest.transaction.objectStore('logs');
+    }
+
+
 };
 
 dbRequest.onsuccess = function (event) {
-    db = event.target.result;
-}
+    db = dbRequest.result;
+};
 
+dbRequest.onerror = function () {
+    alert('error opening database');
+};
+
+}
 function addTeaLog(db, Tea) {
+
+    console.log(db);
 
     let tx = db.transaction(['logs'], 'readwrite');
     let store = tx.objectStore('logs');
 
-    let log = {brand: Tea.brand, name: Tea.name, type: Tea.type, rating: Tea.rating, comment: Tea.comment, timestamp: Date.now()};
+    let log = {
+        brand: Tea.brand,
+        name: Tea.name,
+        type: Tea.type,
+        rating: Tea.rating,
+        comment: Tea.comment,
+        timestamp: Date.now()
+    };
     store.add(log);
 
-    tx.oncomplete = function()  {console.log('saved'); }
-    tx.onerror = function() {console.log('NOPE');}
+    tx.oncomplete = function () {
+        console.log('saved');
+    }
+    tx.onerror = function () {
+        console.log('NOPE');
+    }
 }
+
+let submit = document.getElementById('submit');
+submit.addEventListener('click', submitTeaLog());
 
 function submitTeaLog() {
-    let submit = document.getElementById('submit');
+
     let tea = new Tea();
 
-    document.querySelector('input[name="genderS"]:checked').value;
-    
-    addTeaLog(db, )
+    tea.brand = document.getElementById('brand').value;
+    tea.name = document.getElementById('teaname').value;
+    tea.type = document.querySelector('input[name="teatype"]:checked').value;
+    tea.rating = document.querySelector('input[name="rating"]:checked').value;
+    tea.comment = document.getElementById('comment').value;
+
+    addTeaLog(db, tea);
 }
-    
+
 
 //load tealogs from localstorage
 
 // function loadLogs() {
 
-   
-   
 
-    // console.log(localStorage);
-    // let teas = JSON.parse(localStorage.getItem('tealogs' || '[]'));
-    // console.log(teas);
-    // if (teas) {
-    //     let tealogs_length = window.localStorage.length;
-       
 
-    //     for (var i = 0; i < tealogs_length; i++) {
-    //         console.log(teas.name);
-  
-    //     }
-    // } else {
-        
-    // let container = document.getElementById('logs');
-    // let log = document.createElement('article');
-    // log.innerHTML = `no logs, go log something!`;
-    // //if green some image, if black other etc
-    // container.appendChild(log);//do a div here
-    // }
+
+// console.log(localStorage);
+// let teas = JSON.parse(localStorage.getItem('tealogs' || '[]'));
+// console.log(teas);
+// if (teas) {
+//     let tealogs_length = window.localStorage.length;
+
+
+//     for (var i = 0; i < tealogs_length; i++) {
+//         console.log(teas.name);
+
+//     }
+// } else {
+
+// let container = document.getElementById('logs');
+// let log = document.createElement('article');
+// log.innerHTML = `no logs, go log something!`;
+// //if green some image, if black other etc
+// container.appendChild(log);//do a div here
+// }
 
 // }
 
@@ -82,7 +113,7 @@ function submitTeaLog() {
 function saveTea() {
     // id++;
     // let newTea = new Tea('miau','boo','green','bad');
-	// localStorage.setItem(`tealogs${id}`, JSON.stringify([newTea]));
+    // localStorage.setItem(`tealogs${id}`, JSON.stringify([newTea]));
 }
 
 

@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="loadLogs()">
 
     <header id="header">
             <div id="header__buttons">
@@ -50,7 +50,7 @@
                         <span class="checkmark"></span>
                     </label>
                     <label class="container__rating">😐
-                        <input type="radio" name="rating" id="ratingMeh">
+                        <input type="radio" name="rating" id="ratingMeh" checked>
                         <span class="checkmark"></span>
                     </label>
                     <label class="container__rating">😃
@@ -80,12 +80,12 @@
                         <span class="checkmark"></span>
                     </label>
                     <label class="container__teatype">there's something else?!
-                        <input type="radio" name="teatype" id="typeOther">
+                        <input type="radio" name="teatype" id="typeOther" checked>
                         <span class="checkmark"></span>
                     </label>
 
                     <label>some more comments?
-                    <input type="textarea" rows="4">
+                    <input type="textarea" rows="4" id="comment">
                 </label>
                     <input type="button" value="submit" id="submit">
                 </form>
