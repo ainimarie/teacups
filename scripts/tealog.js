@@ -11,11 +11,50 @@ class Tea {
 let obj, content, x = '';
 let id = 1;
 
+let db;
+let dbRequest = indexedDB.open('tealogs', 1);
+
+dbRequest.onupgradeneeded = function (event) {
+    db = event.target.result;
+    let logs = db.createObjectStore('logs', {autoIncrement: true});
+};
+
+dbRequest.onerror = function() {
+alert('error opening database');
+};
+
+dbRequest.onsuccess = function (event) {
+    db = event.target.result;
+}
+
+function addTeaLog(db, Tea) {
+
+    let tx = db.transaction(['logs'], 'readwrite');
+    let store = tx.objectStore('logs');
+
+    let log = {brand: Tea.brand, name: Tea.name, type: Tea.type, rating: Tea.rating, comment: Tea.comment, timestamp: Date.now()};
+    store.add(log);
+
+    tx.oncomplete = function()  {console.log('saved'); }
+    tx.onerror = function() {console.log('NOPE');}
+}
+
+function submitTeaLog() {
+    let submit = document.getElementById('submit');
+    let tea = new Tea();
+
+    document.querySelector('input[name="genderS"]:checked').value;
+    
+    addTeaLog(db, )
+}
+    
+
 //load tealogs from localstorage
 
-function loadLogs() {
+// function loadLogs() {
 
-    let openRequest = indexedDB.open('tealogs', 1);
+   
+   
 
     // console.log(localStorage);
     // let teas = JSON.parse(localStorage.getItem('tealogs' || '[]'));
@@ -37,7 +76,7 @@ function loadLogs() {
     // container.appendChild(log);//do a div here
     // }
 
-}
+// }
 
 // add tealog to local storage
 function saveTea() {
@@ -77,22 +116,22 @@ function saveTea() {
 //     req.open('GET', url, true);
 //     req.overrideMimeType("application/json");
 // 	req.send();
+// // }
+
+// function showLogs(tea) {
+
+//     let container = document.getElementById('logs');
+//     let log = document.createElement('article');
+//     log.setAttribute('id', `log${id}`);
+//     log.setAttribute('class', 'item-logs');
+//     log.innerHTML = `<h3 class="log__title">${name}</h3>
+//     <span class="log__subtitle">${brand}</span>
+//     // <p>${type}</p>
+//     // <p>${comment}</p>
+//     // ${date}`;
+//     //if green some image, if black other etc
+//     container.appendChild(log);
 // }
-
-function showLogs(tea) {
-
-    let container = document.getElementById('logs');
-    let log = document.createElement('article');
-    log.setAttribute('id', `log${id}`);
-    log.setAttribute('class', 'item-logs');
-    log.innerHTML = `<h3 class="log__title">${name}</h3>
-    <span class="log__subtitle">${brand}</span>
-    // <p>${type}</p>
-    // <p>${comment}</p>
-    // ${date}`;
-    //if green some image, if black other etc
-    container.appendChild(log);
-}
 
 // let sub = document.getElementById('submit').addEventListener('click', function () {
 // //todo
@@ -107,17 +146,6 @@ function showLogs(tea) {
 //     console.log(data);
 // });
 
-let green = document.getElementById('colorGreen');
-
-green.addEventListener('click', function (e) {
-    document.documentElement.setAttribute('data-theme', 'greentheme')
-})
-
-let pink = document.getElementById('colorPink');
-
-pink.addEventListener('click', function (e) {
-    document.documentElement.setAttribute('data-theme', 'light')
-})
 //submit-tea
 
 
@@ -142,3 +170,17 @@ pink.addEventListener('click', function (e) {
 // 		list.removeChild(list.firstChild); 
 // 	}
 // }
+
+//color-switches
+
+let green = document.getElementById('colorGreen');
+
+green.addEventListener('click', function (e) {
+    document.documentElement.setAttribute('data-theme', 'greentheme')
+})
+
+let pink = document.getElementById('colorPink');
+
+pink.addEventListener('click', function (e) {
+    document.documentElement.setAttribute('data-theme', 'light')
+})
