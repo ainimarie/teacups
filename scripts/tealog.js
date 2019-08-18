@@ -12,36 +12,41 @@ let obj, content, x = '';
 let id = 1;
 
 let db;
+
+let logs;
 let dbRequest = indexedDB.open('tealogs', 1);
 
 function loadLogs() {
 
-dbRequest.onupgradeneeded = function (event) {
-    db = event.target.result;
-
-    let logs;
-    if (! db.objectStoreNames.contains('logs')) {
-        logs = db.createObjectStore('logs', { autoIncrement: true});
-    } else {
-        logs = dbRequest.transaction.objectStore('logs');
-    }
+    dbRequest.onupgradeneeded = function (event) {
+        db = event.target.result;
 
 
-};
+        if (!db.objectStoreNames.contains('logs')) {
+            logs = db.createObjectStore('logs', {
+                autoIncrement: true
+            });
+        } else {
+            logs = dbRequest.transaction.objectStore('logs');
+        }
 
-dbRequest.onsuccess = function (event) {
-    db = dbRequest.result;
-};
 
-dbRequest.onerror = function () {
-    alert('error opening database');
-};
+    };
+
+    dbRequest.onsuccess = function (event) {
+        db = event.target.result;
+
+    };
+
+    dbRequest.onerror = function () {
+        alert('error opening database');
+    };
 
 }
-function addTeaLog(db, Tea) {
 
-    console.log(db);
+function addTeaLog(Tea) {
 
+    let db = logs;
     let tx = db.transaction(['logs'], 'readwrite');
     let store = tx.objectStore('logs');
 
